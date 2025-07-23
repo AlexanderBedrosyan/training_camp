@@ -8,13 +8,14 @@ class Lamp:
         self.is_on = is_on
 
     def switch (self):
-        if self.is_on == "true":
-            print("Тhe lamp is on")
-        elif self.is_on == "false":
-            print("Тhe lamp is off")
+        if self.is_on is True:
+            self.is_on = False
+        elif self.is_on is False:
+            self.is_on = True
         else:
             print("Enter the correct state of the lamp. It can be on/true or off/false.")
 
 
-current_lapm = Lamp(input("Enter true for on or false for off for the lamp status: "))
-Lamp.switch(current_lapm)
+current_lapm = Lamp(True)
+current_lapm.switch()
+print(current_lapm.is_on)
