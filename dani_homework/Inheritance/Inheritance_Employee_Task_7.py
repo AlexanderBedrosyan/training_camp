@@ -1,0 +1,2 @@
+# Employees Създай клас Employee с атрибути name и salary.
+# Създай клас Developer, който наследява Employee и има допълнителен атрибут programming_language. Добави метод code(), който принтира "{name} is coding in {programming_language}."
