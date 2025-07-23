@@ -6,9 +6,9 @@ class Student:
     def __init__(self, name):
         self.name = name
 
-    def greet(name):
-        print(f"Hello, my name is {name}.")
+    def greet(self):
+        print(f"Hello, my name is {self.name}.")
 
-current_student = input("Please enter а student name: ")
+current_student = Student(input("Please enter а student name: "))
 
 Student.greet(current_student)
