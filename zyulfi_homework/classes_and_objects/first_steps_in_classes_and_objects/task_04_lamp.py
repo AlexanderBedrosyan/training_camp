@@ -9,9 +9,9 @@ class Lamp:
 
     def switch (self):
         if self.is_on == "true":
-            print("Тhe lamp is on")
+            print("on")
         elif self.is_on == "false":
-            print("Тhe lamp is off")
+            print("off")
         else:
             print("Enter the correct state of the lamp. It can be on/true or off/false.")
 
