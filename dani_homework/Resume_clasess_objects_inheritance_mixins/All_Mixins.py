@@ -16,7 +16,7 @@ class ElectricMixin:
 # Добави метод secure_save() в SecureFile, който връща "Saving {encrypted filename}".
 
 class EncryptMixin:
-    def encrypt(data):
-        return "Encrypted {data}"
+    def encrypt(self, data):
+        return f"Encrypted {data}"
 
 #--------------------------------------------------------------------------------------
