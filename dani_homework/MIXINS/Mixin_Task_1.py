@@ -3,6 +3,7 @@
 # Създай клас User с атрибут name.
 # Направи User да наследява и от LoggerMixin.
 # Създай обект и извикай log.
+# --------------------------------------------
 
 class LoggerMixin:
     def log(self, message):
