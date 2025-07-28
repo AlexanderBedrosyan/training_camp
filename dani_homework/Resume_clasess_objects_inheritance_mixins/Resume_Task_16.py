@@ -3,6 +3,7 @@
 # Създай клас ElectricMixin с метод plug_in() връщащ "Plugged in electric instrument".
 # Създай клас ElectricGuitar, който наследява Guitar и използва ElectricMixin,
 # добави метод distortion() връщащ "Distortion effect ON".
+# -----------------------------------------------------------------------------
 
 from Resume_clasess_objects_inheritance_mixins.All_Mixins import ElectricMixin
 

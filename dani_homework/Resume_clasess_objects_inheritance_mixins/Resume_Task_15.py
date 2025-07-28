@@ -3,6 +3,7 @@
 # (ако няма достатъчно средства, връща "Insufficient funds").
 # Създай клас PremiumAccount, наследяващ Account,
 # който override-ва withdraw(amount), за да позволява овърдрафт до -500.
+# ---------------------------------------------------------------------
 
 class Account:
     def __init__(self, balance=float):
