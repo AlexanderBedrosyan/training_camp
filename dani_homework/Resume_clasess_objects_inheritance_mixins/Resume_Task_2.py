@@ -1,0 +1,2 @@
+# Създай клас Animal с метод make_sound(), връщащ "Some sound".
+# Създай клас Cat, който наследява Animal и override-ва make_sound() да връща "Meow".
