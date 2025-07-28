@@ -8,4 +8,15 @@
 class ElectricMixin:
     def plug_in(self):
         return "Plugged in electric instrument"
+#-----------------------------------------------------------------------------------
 
+# Task_14
+# Създай Mixin EncryptMixin с метод encrypt(data), връщащ "Encrypted {data}".
+# Създай клас File, който има filename, и клас SecureFile, който наследява File и използва EncryptMixin.
+# Добави метод secure_save() в SecureFile, който връща "Saving {encrypted filename}".
+
+class EncryptMixin:
+    def encrypt(data):
+        return "Encrypted {data}"
+
+#--------------------------------------------------------------------------------------
