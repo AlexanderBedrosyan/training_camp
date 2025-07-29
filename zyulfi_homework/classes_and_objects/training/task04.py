@@ -7,11 +7,6 @@ class Settings:
         self.theme = theme
 
 current_settings = Settings("Black")
-#
-# getattr(obj, name)	Връща стойност на атрибут
-# setattr(obj, name, value)	Присвоява стойност
-# hasattr(obj, name)	Проверява дали съществува
-# delattr(obj, name)
 
 print(getattr(current_settings, "theme"))
 setattr(current_settings, "theme", "white")

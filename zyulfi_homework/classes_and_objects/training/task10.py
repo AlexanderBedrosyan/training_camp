@@ -1,3 +1,3 @@
-# Задача 7
-# Създай клас Robot с метод __compute() и атрибут __power_level.
-# Достъпи и двете от външен код чрез name mangling.
+# Задача 10
+# Създай клас Session с __token (private), и методи get_token() и __refresh_token().
+# Извикай метода чрез name mangling и демонстрирай капсулация.
