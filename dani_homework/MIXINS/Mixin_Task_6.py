@@ -1,7 +1,8 @@
 # Създай Mixin клас ChargeMixin с метод charge() връщащ "Charging battery...".
 # Създай клас Phone, който наследява от ChargeMixin, и извикай метода.
-from tkinter.font import names
+# --------------------------------------------------------------------
 
+from tkinter.font import names
 
 class ChargeMixin:
     def charge(self):
