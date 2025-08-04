@@ -1,11 +1,26 @@
 # Създай клас User със:
-#
 # инстанс атрибут username
-# класов атрибут user_count, който се увеличава с всяко ново създаване на обект
+# класов атрибут user_count,
+# който се увеличава с всяко ново създаване на обект
 # класов метод get_user_count()
 # Примерен вход:
-#
 # u1 = User("ivan")
 # u2 = User("maria")
-# print(User.get_user_count())  # 2
+# print(User.get_user_count()) # -> 2
 #---------------------------------------------------------------------------
+
+class User:
+    user_count: int = 0  # класов атрибут
+
+    def __init__(self, username: str) -> None:
+        self.username = username  # инстанс атрибут
+        User.user_count += 1      # увеличаваме броя на потребителите
+
+    @classmethod
+    def get_user_count(cls) -> int:
+        return cls.user_count
+
+u1 = User("ivan")
+u2 = User("maria")
+
+print(User.get_user_count())  # -> 2

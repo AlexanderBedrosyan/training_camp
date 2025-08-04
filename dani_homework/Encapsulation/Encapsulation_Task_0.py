@@ -12,8 +12,8 @@
 #
 # box = SecretBox()
 #
-# # print(box.__code)  ❌ Грешка: няма такъв атрибут
-# print(box._SecretBox__code)  # ✅ Name mangling
+# # print(box.__code)           ❌ Грешка: няма такъв атрибут
+# print(box._SecretBox__code)   ✅ Name mangling
 
 #------------------------------------------------------------------
 # Name Mangling на метод
@@ -27,8 +27,8 @@
 #
 # safe = Safe()
 #
-# # safe.__unlock() ❌ AttributeError
-# safe._Safe__unlock()  # ✅ Работи
+# # safe.__unlock()     ❌ AttributeError
+# safe._Safe__unlock()  ✅ Работи
 
 #-----------------------------------------------------------------
 # Built-in функции за атрибути
