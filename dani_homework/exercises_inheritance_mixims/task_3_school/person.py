@@ -1,0 +1,1 @@
+# person има атрибути: name, age
