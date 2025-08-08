@@ -1,0 +1,1 @@
+# Perishable: добавя expiration_date, метод is_expired(today)

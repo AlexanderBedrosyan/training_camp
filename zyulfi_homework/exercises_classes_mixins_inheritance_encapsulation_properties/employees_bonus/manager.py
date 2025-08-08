@@ -1,0 +1,1 @@
+# Manager има екип и метод total_team_salary()
