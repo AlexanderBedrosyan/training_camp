@@ -1,0 +1,1 @@
+# Employee с name, _salary, методи get_salary()
