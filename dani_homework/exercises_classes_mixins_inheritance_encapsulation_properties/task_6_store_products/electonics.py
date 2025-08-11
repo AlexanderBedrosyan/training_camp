@@ -1,1 +1,0 @@
-# Electronics: добавя гаранция в месеци, метод is_under_warranty(months_used)
