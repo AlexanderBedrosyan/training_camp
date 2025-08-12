@@ -1,5 +1,5 @@
 # ShapeManager: държи списък от фигури, метод total_area() и largest_shape()
-from exercises_hard_tasks.geometry_shapes.shape import Shape
+from exercises_hard_tasks.task02_geometry_shapes.shape import Shape
 
 
 class ShapeManager:
