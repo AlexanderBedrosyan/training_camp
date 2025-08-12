@@ -1,0 +1,1 @@
+# Investment: private __amount, rate, метод calculate_return(years)
