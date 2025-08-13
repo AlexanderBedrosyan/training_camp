@@ -1,0 +1,1 @@
+# Student: име, private __grades (dict: курс → оценка), методи add_grade(course, grade), average()

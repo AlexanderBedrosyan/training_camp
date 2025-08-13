@@ -1,0 +1,1 @@
+# Candidate: name, private __votes, метод add_votes(n)
