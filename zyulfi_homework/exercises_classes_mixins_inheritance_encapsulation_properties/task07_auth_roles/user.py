@@ -1,0 +1,1 @@
+# User: private __password, метод check_password()

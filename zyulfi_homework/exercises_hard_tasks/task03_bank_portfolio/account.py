@@ -1,0 +1,1 @@
+# Account: private __balance, методи deposit(), withdraw()

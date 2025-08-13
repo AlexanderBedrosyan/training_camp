@@ -1,0 +1,1 @@
+# Mage: private __mana, cast_spell() с @property и @setter
