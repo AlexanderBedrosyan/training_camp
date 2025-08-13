@@ -130,6 +130,35 @@ election_system/
   - `winning_party()`
   - `top_candidate()`
 
+```python
+from candidate import Candidate
+from party import Party
+from election import Election
+
+c1 = Candidate("Alice")
+c2 = Candidate("Bob")
+c3 = Candidate("Charlie")
+
+c1.add_votes(1200)
+c2.add_votes(1500)
+c3.add_votes(900)
+
+party1 = Party("Party A")
+party1.add_candidate(c1)
+party1.add_candidate(c2)
+
+party2 = Party("Party B")
+party2.add_candidate(c3)
+
+election = Election()
+election.add_party(party1)
+election.add_party(party2)
+
+print("Winning party:", election.winning_party().name)
+print("Top candidate:", election.top_candidate().name)
+
+```
+
 ---
 
 ## 🗂️ Задача 5: `weather_station/`
@@ -147,6 +176,28 @@ weather_station/
 - `Reading`: private `__temperature`, `__humidity`, методи за достъп
 - `Station`: списък от `Reading` обекти, методи `average_temp()`, `average_humidity()`
 - `Network`: списък от станции, метод `overall_average_temp()`
+
+```python
+from reading import Reading
+from station import Station
+from network import Network
+
+s1 = Station("Station 1")
+s1.add_reading(Reading(20, 50))
+s1.add_reading(Reading(22, 55))
+
+s2 = Station("Station 2")
+s2.add_reading(Reading(18, 60))
+s2.add_reading(Reading(21, 52))
+
+network = Network()
+network.add_station(s1)
+network.add_station(s2)
+
+print("Station 1 avg temp:", s1.average_temp())
+print("Overall avg temp:", network.overall_average_temp())
+
+```
 
 ---
 
@@ -166,6 +217,36 @@ university_grades/
 - `Course`: име, списък от студенти, метод `average_grade()`
 - `University`: списък от курсове, метод `best_student()`
 
+```python
+from student import Student
+from course import Course
+from university import University
+
+s1 = Student("Anna")
+s2 = Student("Mark")
+s3 = Student("Lily")
+
+c1 = Course("Math")
+c1.add_student(s1)
+c1.add_student(s2)
+
+c2 = Course("Physics")
+c2.add_student(s2)
+c2.add_student(s3)
+
+s1.add_grade("Math", 5.5)
+s2.add_grade("Math", 6)
+s2.add_grade("Physics", 5)
+s3.add_grade("Physics", 5.8)
+
+uni = University()
+uni.add_course(c1)
+uni.add_course(c2)
+
+print("Best student:", uni.best_student().name)
+
+```
+
 ---
 
 ## 🗂️ Задача 7: `movie_ratings/`
@@ -183,6 +264,30 @@ movie_ratings/
 - `Movie`: име, private `__ratings` (list от числа), методи `add_rating()`, `average_rating()`
 - `Reviewer`: име, метод `rate_movie(movie, rating)`
 - `RatingSystem`: държи списък от филми, метод `top_rated_movie()`
+
+```python
+from movie import Movie
+from reviewer import Reviewer
+from rating_system import RatingSystem
+
+m1 = Movie("Inception")
+m2 = Movie("The Matrix")
+
+r1 = Reviewer("John")
+r2 = Reviewer("Emma")
+
+r1.rate_movie(m1, 9)
+r2.rate_movie(m1, 8)
+r1.rate_movie(m2, 10)
+r2.rate_movie(m2, 9)
+
+system = RatingSystem()
+system.add_movie(m1)
+system.add_movie(m2)
+
+print("Top rated movie:", system.top_rated_movie().name)
+
+```
 
 ---
 
@@ -202,6 +307,28 @@ fitness_tracker/
 - `User`: списък от активности, метод `total_calories()`
 - `Tracker`: списък от потребители, метод `most_active_user()`
 
+```python
+from activity import Activity
+from user import User
+from tracker import Tracker
+
+u1 = User("Tom")
+u2 = User("Sara")
+
+u1.add_activity(Activity("Running", 30, 300))
+u1.add_activity(Activity("Cycling", 60, 500))
+
+u2.add_activity(Activity("Walking", 45, 200))
+u2.add_activity(Activity("Running", 20, 250))
+
+tracker = Tracker()
+tracker.add_user(u1)
+tracker.add_user(u2)
+
+print("Most active user:", tracker.most_active_user().name)
+
+```
+
 ---
 
 ## 🗂️ Задача 9: `transport_network/`
@@ -219,6 +346,28 @@ transport_network/
 - `Route`: начална и крайна точка, разстояние
 - `Vehicle`: private `__speed`, метод `travel_time(route)`
 - `Network`: списък от маршрути и превозни средства, метод `fastest_vehicle(route)`
+
+```python
+from route import Route
+from vehicle import Vehicle
+from network import Network
+
+r1 = Route("City A", "City B", 150)
+r2 = Route("City A", "City C", 300)
+
+v1 = Vehicle(100)
+v2 = Vehicle(150)
+
+network = Network()
+network.add_route(r1)
+network.add_route(r2)
+network.add_vehicle(v1)
+network.add_vehicle(v2)
+
+print("Fastest vehicle on route 1 speed:", network.fastest_vehicle(r1).__speed)  # might need getter
+
+
+```
 
 ---
 
@@ -239,3 +388,25 @@ space_mission/
 - `Mission`: списък от астронавти и кораб, методи:
   - `total_hours_in_space()`
   - `is_over_capacity()`
+
+
+```python
+from astronaut import Astronaut
+from spaceship import Spaceship
+from mission import Mission
+
+a1 = Astronaut("Neil", 1000)
+a2 = Astronaut("Buzz", 800)
+a3 = Astronaut("Sally", 500)
+
+ship = Spaceship("Apollo", 2)
+
+mission = Mission(ship)
+mission.add_astronaut(a1)
+mission.add_astronaut(a2)
+mission.add_astronaut(a3)  # should trigger over capacity check
+
+print("Total hours in space:", mission.total_hours_in_space())
+print("Over capacity?", mission.is_over_capacity())
+
+```
