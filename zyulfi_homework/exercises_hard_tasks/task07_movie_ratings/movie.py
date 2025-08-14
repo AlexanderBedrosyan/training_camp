@@ -1,0 +1,1 @@
+# Movie: име, private __ratings (list от числа), методи add_rating(), average_rating()
