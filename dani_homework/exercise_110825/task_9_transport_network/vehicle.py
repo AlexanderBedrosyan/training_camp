@@ -1,0 +1,1 @@
+# Vehicle: private __speed, метод travel_time(route)
