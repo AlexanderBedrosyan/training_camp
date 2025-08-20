@@ -1,0 +1,1 @@
+#Network: списък от маршрути и превозни средства, метод fastest_vehicle(route)

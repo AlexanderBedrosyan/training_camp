@@ -1,1 +1,0 @@
-# Rectangle (protected _width, _height), метод area() = width * height
