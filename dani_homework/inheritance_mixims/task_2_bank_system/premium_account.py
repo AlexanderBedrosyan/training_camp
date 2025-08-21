@@ -1,7 +1,7 @@
 # PremiumAccount (в premium_account.py) наследява Account,
 # но има метод apply_bonus() – добавя 5% към баланса
 
-from exercises_inheritance_mixims.Task_2_bank_system.account import Account
+from inheritance_mixims.Task_2_bank_system.account import Account
 
 class PremiumAccount(Account):
     # def __init__(self, balance):

@@ -1,7 +1,7 @@
 # EmailMessage: наследява Message, добавя адрес,
 # метод send(), който валидира адрес
 
-from exercises_inheritance_mixims.task_9_notifications.message import Message
+from inheritance_mixims.task_9_notifications.message import Message
 import re
 
 class EmailMessage(Message):
