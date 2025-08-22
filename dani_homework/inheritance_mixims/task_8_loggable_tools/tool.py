@@ -1,6 +1,6 @@
 # Tool наследява миксина и има метод use()
 
-from exercises_inheritance_mixims.task_8_loggable_tools.loggable_mixin import LoggableMixin
+from inheritance_mixims.task_8_loggable_tools.loggable_mixin import LoggableMixin
 
 class Tool(LoggableMixin):
     def __init__(self, name_of_tool: str):
