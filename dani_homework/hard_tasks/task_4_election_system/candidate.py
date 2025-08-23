@@ -3,7 +3,8 @@
 class Candidate:
     def __init__(self, name=str):
         self.name = name
-        self.votes = 0
+        self.__votes = 0
 
-    def add_votes(self, current_votes=int) -> None:
-        self.votes += current_votes
+    def add_votes(self, vote=int) -> None:
+        self.__votes += vote
+

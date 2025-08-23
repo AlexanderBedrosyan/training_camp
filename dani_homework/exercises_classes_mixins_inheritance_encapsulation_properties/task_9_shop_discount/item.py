@@ -1,1 +1,0 @@
-# Item с name, price
