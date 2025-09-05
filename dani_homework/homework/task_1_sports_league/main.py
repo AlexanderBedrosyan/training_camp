@@ -3,7 +3,7 @@ from team import Team
 from league import League
 
 p1 = Player("Ivan", "Forward")
-p1.score_goal(); p1.score_goal()
+p1.score_goal()
 p2 = Player("Georgi", "Midfielder")
 p2.score_goal()
 

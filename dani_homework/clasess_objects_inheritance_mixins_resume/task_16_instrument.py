@@ -5,17 +5,19 @@
 # добави метод distortion() връщащ "Distortion effect ON".
 # -----------------------------------------------------------------------------
 
-from resume_clasess_objects_inheritance_mixins.all_mixins import ElectricMixin
+from all_mixins import ElectricMixin
 
 
 class Instrument:
-    def play(self):
+    def play(self)-> str:
         return "Play music"
+
 class Guitar(Instrument):
-    def tune(self):
+    def tune(self)-> str:
         return "Tuning guitar"
+
 class ElectronicGuitar(Guitar, ElectricMixin):
-    def distortion(self):
+    def distortion(self)-> str:
         return "Distortion effect ON"
 
 elguitar = ElectronicGuitar()
