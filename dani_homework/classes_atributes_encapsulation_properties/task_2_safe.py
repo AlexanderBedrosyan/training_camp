@@ -9,8 +9,8 @@
 #----------------------------------------------------------------------
 
 class Safe:
-    def __init__(self, code = str):
-        self.__code = code  # частен  атрибут
+    def __init__(self, code = str)-> None:
+        self.__code = code
 
     def unlock(self, code = str) -> None:
         """Отпечатва 'Unlocked', ако въведеният код съвпада с вътрешния."""

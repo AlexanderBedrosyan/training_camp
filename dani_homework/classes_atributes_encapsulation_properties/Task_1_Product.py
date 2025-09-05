@@ -10,7 +10,7 @@
 # ------------------------------------------------------------------
 
 class Product:
-    def __init__(self, name = str, price = float):
+    def __init__(self, name = str, price = float)-> None:
         self.name = name
         self.__price = max(price, 0)  # гарантираме, че не е под 0
 

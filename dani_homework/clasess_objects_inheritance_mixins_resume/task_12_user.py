@@ -5,21 +5,21 @@
 #--------------------------------------------------------------------------
 
 class User:
-    def __init__(self, username, email):
+    def __init__(self, username: str, email: str)-> None:
         self.username = username
-#
-    def change_email(self, new_email):
+        self.email = email
+
+    def change_email(self, new_email: str)-> str:
         if "@" in new_email:
             self.email = new_email
             return f"Email changed to {new_email}"
         return "Invalid email address, missing @"
-#
 
 class Admin(User):
-    def __init__(self, username, email):
+    def __init__(self, username: str, email: str)->None:
         super().__init__(username, email)
 
-    def reset_password(self):
+    def reset_password(self)-> str:
         return f"Password reset for {self.username}"
 
 # Тест
