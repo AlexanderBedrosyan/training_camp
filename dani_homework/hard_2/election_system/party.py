@@ -1,0 +1,1 @@
+# Party: name, списък от кандидати; метод total_votes()

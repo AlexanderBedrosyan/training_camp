@@ -6,22 +6,22 @@
 # --------------------------------------------------------------------
 
 class LibraryItem:
-    def __init__(self, title, year):
+    def __init__(self, title: str, year: int)-> None:
         self.title = title
         self.year = year
 
 class Book(LibraryItem):
-    def __init__(self, title, year, author):
+    def __init__(self, title: str, year: int, author: str)-> None:
         super().__init__(title, year)
         self.author = author
 
 class Magazine(LibraryItem):
-    def __init__(self, title, year, issue_id):
+    def __init__(self, title: str, year: int, issue_id: int)-> None:
         super().__init__(title, year)
         self.issue_id = issue_id
 
 class DigitalMagazine(Magazine):
-    def download(self):
+    def download(self)-> str:
         return f'Downloading "{self.title}", year:{self.year}, issue: {self.issue_id}'
 
 dm = DigitalMagazine("Perfect Magazine", 2025, 777777 )

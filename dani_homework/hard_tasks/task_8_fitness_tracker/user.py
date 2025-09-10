@@ -1,12 +1,19 @@
 # User: списък от активности, метод total_calories()
+from activity import Activity
 
 class User:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
-        self.activity_list = []
+        self.list_of_activity: list[Activity] = []
 
-    def add_activity(self, activity):
-        self.activity_list.append(activity)
+    def add_activity(self, activity: Activity):
+        self.list_of_activity.append(activity)
 
-    def total_calories(self):
-        return sum(activity.calories for activity in self.activity_list)
+    def total_calories(self) -> float:
+        total = 0.0
+        for act in self.list_of_activity:
+            total += act.calories
+        return total
+
+    def __str__(self):
+        return f"{self.name} – {len(self.list_of_activity)} активности, {self.total_calories()} kcal"
