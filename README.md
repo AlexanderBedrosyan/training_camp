@@ -1,3 +1,3 @@
 # training_camp
 
-Lections and exercises.
+Lections and exercises for OOP.
