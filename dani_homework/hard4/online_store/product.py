@@ -1,5 +1,4 @@
 # Product
-#
 # Атрибути: name, price, stock
 # Методи:
 # reduce_stock(qty) → намалява стоката, ако има наличност
