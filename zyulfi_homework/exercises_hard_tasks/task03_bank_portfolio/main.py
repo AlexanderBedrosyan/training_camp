@@ -16,3 +16,5 @@ portfolio.add_investment(inv2)
 
 print("Total value now:", portfolio.total_value())
 print("Projected value in 5 years:", portfolio.projected_value(5))
+print(inv1.calculate_return(5))
+print(inv2.calculate_return(5))
