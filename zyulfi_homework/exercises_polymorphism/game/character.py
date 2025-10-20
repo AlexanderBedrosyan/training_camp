@@ -1,0 +1,1 @@
+# Character: базов клас с метод attack()

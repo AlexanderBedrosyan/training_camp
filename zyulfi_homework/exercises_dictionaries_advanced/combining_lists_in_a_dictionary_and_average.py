@@ -2,7 +2,6 @@
 # Условие:
 # combine_to_dict(names, values) прави {name: value} и връща речника + средната стойност на values (round 2).
 
-
 def combine_to_dict(names, values):
     # new_dict = dict(zip(names, values))
     # return [new_dict, sum(new_dict.values()) / len(new_dict)]
@@ -17,5 +16,6 @@ def combine_to_dict(names, values):
 students = ["Иван","Мария","Петър"]
 scores = [85,92,78]
 print(combine_to_dict(students, scores))
+
 # Очакван изход:
 # ({'Иван':85,'Мария':92,'Петър':78}, 85.0)

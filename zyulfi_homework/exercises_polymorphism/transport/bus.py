@@ -1,0 +1,1 @@
+# Bus: връща distance / speed

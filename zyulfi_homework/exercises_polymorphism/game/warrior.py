@@ -1,0 +1,1 @@
+# Warrior: връща "Swing sword"
