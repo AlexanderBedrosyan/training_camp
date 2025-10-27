@@ -1,0 +1,1 @@
+# RoleMixin: методи add_role() и has_role()

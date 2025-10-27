@@ -20,3 +20,6 @@ print(n.fastest_vehicle(r).name)  # Car
 print(n.fastest_vehicle(r2).name)
 print(str(r))
 print(str(r2))
+
+print(f"For the current {str(r2)} the fastest transport is: {n.fastest_vehicle(r2).name}")
+

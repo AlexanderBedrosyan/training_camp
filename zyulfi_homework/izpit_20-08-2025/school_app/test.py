@@ -7,10 +7,11 @@ t = Teacher("Petrov", "Math")
 s.show_info()
 t.show_info()
 
-# print(Student.school_name)
-# s.grade = 6
-# print(s.grade)
-# try:
-#     s.grade = 7
-# except ValueError as e:
-#     print("Error:", e)
+print(Student.school_name)
+s.grade = 6
+print(s.grade)
+try:
+    s.grade = 7
+except ValueError as e:
+    print("Error:", e)
+
