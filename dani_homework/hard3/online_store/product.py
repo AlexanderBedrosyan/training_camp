@@ -1,2 +1,0 @@
-# Product
-# Атрибути: name, price

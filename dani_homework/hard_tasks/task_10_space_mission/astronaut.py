@@ -1,1 +1,0 @@
-# Astronaut: име, private __hours_in_space, метод add_hours(n)
