@@ -1,1 +1,0 @@
-# Station: списък от Reading обекти, методи average_temp(), average_humidity()
