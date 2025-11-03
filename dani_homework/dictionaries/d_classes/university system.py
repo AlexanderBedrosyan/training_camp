@@ -4,41 +4,37 @@
 # Метод add_student(teacher, student)
 # Метод teacher_load(teacher) – брой студенти на преподавателя.
 # Метод most_loaded_teacher() – връща най-натоварения преподавател.
+from  pprint import pprint
+
 class University:
     def __init__(self):
-# Структура: {преподавател: {"students": [списък], "subject": предмет}}
         self.teachers = {}
 
-    def add_teacher(self, name: str, subject: str):
-# Добавя преподавател, ако го няма.
-        if name not in self.teachers:
-            self.teachers[name] = {"students": [], "subject": subject}
+    def add_teacher(self, name, subject):
+        self.teachers[name] = {}
+        self.teachers[name]["subject"] = subject
+        self.teachers[name]["students"] = []
 
-    def add_student(self, teacher: str, student: str):
-# Добавя студент към преподавателя (ако го няма, не прави нищо).
+    def add_student(self, teacher, student):
         if teacher not in self.teachers:
-            print(f"❌ Преподавател {teacher} не съществува!")
-            return
+            self.add_teacher(teacher, "no subject")
+
         self.teachers[teacher]["students"].append(student)
 
-    def teacher_load(self, teacher: str) -> int:
-# Връща броя на студентите на даден преподавател.
-        if teacher not in self.teachers:
-            return 0
+    def teacher_load(self, teacher):
+        print(self.teachers[teacher])
         return len(self.teachers[teacher]["students"])
 
-    def most_loaded_teacher(self) -> str:
-# Връща името на най-натоварения преподавател (с най-много студенти).
-        if not self.teachers:
-            return None
-        return max(self.teachers, key=lambda t: len(self.teachers[t]["students"]))
+    def most_loaded_teacher(self):
+        pprint(self.teachers)
+        return sorted(self.teachers.items(), key=lambda x: -len(x[1]["students"]))[0][0]
 
-    def __str__(self):
-        return f"University({len(self.teachers)} teachers)"
 # Тест:
 u = University()
 u.add_teacher("Dr. Ivanov", "Math")
 u.add_teacher("Dr. Petrov", "Physics")
 u.add_student("Dr. Ivanov", "Anna")
 u.add_student("Dr. Ivanov", "Boris")
+u.add_student("Dr. Petkov", "Boris")
+print(u.teacher_load("Dr. Ivanov"))
 print(u.most_loaded_teacher())  # Dr. Ivanov
