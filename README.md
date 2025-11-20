@@ -1,3 +1,3 @@
 # training_camp
 
-Lections and exercises for OOP.
+Lections and exercises for OOP and Django.
