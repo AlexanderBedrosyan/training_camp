@@ -148,6 +148,34 @@ id  name      reader_id  bio
 2   Стефан    2          "Предпочита sci-fi"
 ```
 
+**Примери от реалния живот:**
+- Човек ↔ Лична карта — всеки човек има точно една лична карта
+- Служител ↔ Служебен договор — един договор на служител
+- Държава ↔ Столица — всяка държава има точно една столица
+
+**Как се създава в SQL:**
+
+```sql
+-- Стъпка 1: Главната таблица (без Foreign Key)
+CREATE TABLE readers (
+    id   INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT    NOT NULL
+);
+
+-- Стъпка 2: Свързаната таблица — reader_id е едновременно PK и FK
+-- UNIQUE гарантира, че всеки reader може да се появи само веднъж (1:1)
+CREATE TABLE reader_profiles (
+    reader_id INTEGER PRIMARY KEY,           -- PK на тази таблица
+    bio       TEXT,
+    FOREIGN KEY (reader_id) REFERENCES readers(id) ON DELETE CASCADE
+);
+```
+
+> **Ключовото:** Foreign Key колоната (`reader_id`) е и `PRIMARY KEY` на свързаната таблица —
+> това физически налага "едно към едно", защото PK не може да се повтаря.
+
+---
+
 #### 1:N (Едно към Много)  ← Най-честата релация
 Един ред в таблица А може да е свързан с **много** редове в таблица Б.
 
@@ -158,14 +186,37 @@ authors(1)  →  books(N)
 Харуки Мур. → "Норвежка Гора", "Кафка на Брега", "Усамотена Планета"
 ```
 
+**Примери от реалния живот:**
+- Учител → Ученици — един учител преподава на много ученици
+- Майка → Деца — една майка може да има много деца
+- Държава → Градове — една държава съдържа много градове
+- Поръчка → Продукти в поръчката — в една поръчка има много артикули
+
+**Как се създава в SQL:**
+
 ```sql
--- author_id в books е FOREIGN KEY към id в authors (1:N)
+-- Стъпка 1: Главната (родителска) таблица — "едното"
+CREATE TABLE authors (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT    NOT NULL,
+    last_name  TEXT    NOT NULL
+);
+
+-- Стъпка 2: Дъщерната таблица — "многото"
+-- author_id е Foreign Key, който сочи към родителя
 CREATE TABLE books (
-    ...
-    author_id INTEGER NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES authors(id)
+    id        INTEGER PRIMARY KEY AUTOINCREMENT,
+    title     TEXT    NOT NULL,
+    author_id INTEGER NOT NULL,                          -- "много" страната
+    FOREIGN KEY (author_id) REFERENCES authors(id)      -- сочи към "едното"
+        ON DELETE CASCADE                                -- изтрий книгите при изтриване на автор
 );
 ```
+
+> **Ключовото:** Foreign Key (`author_id`) е в таблицата на **"многото"** (books).
+> Един автор → много книги, но всяка книга има точно един автор.
+
+---
 
 #### M:N (Много към Много)
 Много редове от таблица А могат да са свързани с много редове от таблица Б.  
@@ -180,6 +231,59 @@ books  ←  rentals  →  readers
 ```
 
 `rentals` е именно такава свързваща таблица — съдържа `book_id` и `reader_id`.
+
+**Примери от реалния живот:**
+- Студенти ↔ Курсове — студент записва много курсове, курс се посещава от много студенти
+- Актьори ↔ Филми — актьор играе в много филми, филм има много актьори
+- Продукти ↔ Поръчки — продукт може да е в много поръчки, поръчка може да съдържа много продукти
+- Лекари ↔ Пациенти — един лекар лекува много пациенти, един пациент посещава много лекари
+
+**Как се създава в SQL:**
+
+```sql
+-- Стъпка 1: Двете основни таблици
+CREATE TABLE books (
+    id    INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT    NOT NULL
+);
+
+CREATE TABLE readers (
+    id   INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT    NOT NULL
+);
+
+-- Стъпка 2: Свързващата (junction) таблица
+-- Съдържа Foreign Key към всяка от двете таблици
+CREATE TABLE rentals (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    book_id     INTEGER NOT NULL,
+    reader_id   INTEGER NOT NULL,
+    rented_on   DATE    DEFAULT CURRENT_DATE,
+    FOREIGN KEY (book_id)   REFERENCES books(id)   ON DELETE CASCADE,
+    FOREIGN KEY (reader_id) REFERENCES readers(id) ON DELETE CASCADE,
+    UNIQUE (book_id, reader_id)    -- по желание: пречи на дублирани наемания
+);
+```
+
+> **Ключовото:** Нямаш директна връзка между `books` и `readers`.
+> Свързващата таблица (`rentals`) "разбива" M:N на две 1:N релации:
+> - `authors` 1 → N `rentals`
+> - `readers` 1 → N `rentals`
+
+---
+
+### Визуално сравнение на трите вида
+
+```
+1:1                    1:N                      M:N
+─────                  ───                      ───
+[A] ──── [B]          [A] ──── [B1]            [A1] ─┐
+                               [B2]            [A2] ──┼── [junction] ──── [B1]
+                               [B3]            [A3] ─┘                    [B2]
+
+reader ─── profile    author ─── book1         book ─── rental ─── reader
+                              └── book2
+```
 
 ---
 
