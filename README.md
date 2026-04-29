@@ -2,4 +2,4 @@
 
 Official project of academy app.
 
-Lections and exercises for OOp, Django and WEB.
+Lections and exercises for OOP, Django, DB and WEB.
