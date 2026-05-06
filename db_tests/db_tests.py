@@ -1,6 +1,8 @@
-current_boolean = ""
+num = 200
 
-if not current_boolean:
-    print("The value is empty or False.")
+if num == 300:
+    print("The number is 300")
 else:
-    print("The value is NOT empty and is True. ---- " + current_boolean)
+    print(f"The number is not {num}")
+
+print("Final")
