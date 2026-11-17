@@ -132,13 +132,20 @@ def task_04_film_statistics():
 
 def starter_task(task_id: int):
     task = next((item for item in TASK_METADATA if item["id"] == task_id), None)
+    templates = {
+        11: "def task_11_resource_graph():\n    people = fetch_all_pages('people')\n    films = fetch_json(f'{SWAPI_BASE}/films')\n    # TODO: build a graph of resource links and find the most connected item\n    return {'results': []}",
+        12: "def task_12_advanced_ranking():\n    people = fetch_all_pages('people')\n    planets = fetch_all_pages('planets')\n    # TODO: normalize and weight multiple metrics before sorting the results\n    return {'results': []}",
+        13: "def task_13_path_finder():\n    people = fetch_all_pages('people')\n    # TODO: find the shortest path between two characters using shared films/planets/resources\n    return {'results': []}",
+        14: "def task_14_data_quality_audit():\n    people = fetch_all_pages('people')\n    # TODO: detect unknown / missing / empty values and normalize them before reporting\n    return {'results': []}",
+        15: "def task_15_command_center():\n    endpoints = ['people', 'planets', 'films', 'species', 'starships', 'vehicles']\n    # TODO: collect metrics from all endpoints and build a summary dashboard\n    return {'results': []}",
+    }
     prompt = {
         "task_id": task_id,
         "title": task["title"] if task else f"Task {task_id}",
         "status": "starter",
         "message": "This exercise is intentionally left for students to implement. Add the logic in this function in app.py and run the task from the browser.",
         "hint": "Use SWAPI endpoints, fetch JSON, transform the data, and return a dict or list that the frontend can display.",
-        "starter_template": "def task_05_connected_characters():\n    people = fetch_all_pages('people')\n    # TODO: calculate which character appears in the most films\n    return {'results': []}",
+        "starter_template": templates.get(task_id, "def task_05_connected_characters():\n    people = fetch_all_pages('people')\n    # TODO: calculate which character appears in the most films\n    return {'results': []}"),
     }
 
     return prompt
