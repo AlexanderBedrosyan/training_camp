@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SWAPI Interactive Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <p class="eyebrow">API lecture</p>
+          <h1>SWAPI lab</h1>
+        </div>
+
+        <div class="sidebar-header">
+          <span>Exercises</span>
+        </div>
+        <ul id="task-list" class="task-list"></ul>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Selected task</p>
+            <h2 id="task-title">Task 1</h2>
+          </div>
+          <button id="run-task-btn" class="primary-button">Run task</button>
+        </header>
+
+        <section class="status-strip">
+          <span id="status-badge" class="status-badge">Ready</span>
+          <span id="task-meta" class="meta-pill">SWAPI / API</span>
+        </section>
+
+        <section class="card result-card">
+          <div class="card-header">
+            <h3>Result</h3>
+          </div>
+          <pre id="output" class="output-box">Loading...</pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
